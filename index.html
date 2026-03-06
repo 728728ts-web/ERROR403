@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>503 Service Unavailable</title>
+<title>Access Limited / Not Found</title>
 
-<!-- favicon完全無効化 -->
 <link rel="icon" href="data:,">
 <link rel="shortcut icon" href="data:,">
 <link rel="apple-touch-icon" href="data:,">
@@ -16,7 +15,7 @@ body {
   padding: 0;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   color: white;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,24 +25,39 @@ body {
 
 .container {
   max-width: 600px;
-  padding: 20px;
+  padding: 30px;
 }
 
 h1 {
-  font-size: 100px;
+  font-size: clamp(60px, 15vw, 100px); /* 画面サイズに合わせて可変 */
   margin: 0;
   opacity: 0.85;
+  letter-spacing: 5px;
 }
 
 h2 {
   margin-top: 10px;
+  font-size: 1.5rem;
   font-weight: normal;
   opacity: 0.9;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 15px;
 }
 
-p {
-  margin-top: 20px;
+.message {
+  margin-top: 25px;
+  line-height: 1.8;
   opacity: 0.8;
+}
+
+.status-list {
+  text-align: left;
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  background: rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 8px;
 }
 
 .small {
@@ -56,11 +70,24 @@ p {
 
 <body>
   <div class="container">
-    <h1>503</h1>
-    <h2>Service Unavailable</h2>
-    <p>現在メンテナンス中です。</p>
-    <p>しばらくしてから再度アクセスしてください。</p>
-    <div class="small">Temporary Maintenance</div>
+    <h1>ERROR</h1>
+    <h2>アクセスできません</h2>
+    
+    <div class="message">
+      <p>お探しのページは、以下の理由により表示できない可能性があります。</p>
+      
+      <div class="status-list">
+        ・現在システムメンテナンス中 (503)<br>
+        ・指定されたページが削除された (410 Gone)<br>
+        ・URLが間違っているか存在しない (404 Not Found)<br>
+        ・アクセス権限がない、または制限されている (403 Forbidden)<br>
+        ・サイトが閉鎖された
+      </div>
+      
+      <p style="margin-top:20px;">しばらくしてから再度アクセスするか、ブラウザのキャッシュをクリアしてお試しください。</p>
+    </div>
+
+    <div class="small">Maintenance or Access Restriction</div>
     <p>©naninuneno create</p>
   </div>
 </body>
