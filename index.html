@@ -29,7 +29,7 @@ body {
 }
 
 h1 {
-  font-size: clamp(60px, 15vw, 100px); /* 画面サイズに合わせて可変 */
+  font-size: clamp(60px, 15vw, 100px);
   margin: 0;
   opacity: 0.85;
   letter-spacing: 5px;
@@ -65,30 +65,53 @@ h2 {
   font-size: 13px;
   opacity: 0.6;
 }
+
+.back-btn{
+  margin-top:25px;
+  padding:12px 28px;
+  font-size:15px;
+  border:none;
+  border-radius:6px;
+  background:#ffffff20;
+  color:white;
+  cursor:pointer;
+  backdrop-filter: blur(5px);
+  transition:0.2s;
+}
+
+.back-btn:hover{
+  background:#ffffff40;
+}
 </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>ERROR</h1>
-    <h2>アクセスできません</h2>
-    
-    <div class="message">
-      <p>お探しのページは、以下の理由により表示できない可能性があります。</p>
-      
-      <div class="status-list">
-        ・現在システムメンテナンス中 (503)<br>
-        ・指定されたページが削除された (410 Gone)<br>
-        ・URLが間違っているか存在しない (404 Not Found)<br>
-        ・アクセス権限がない、または制限されている (403 Forbidden)<br>
-        ・サイトが閉鎖された
-      </div>
-      
-      <p style="margin-top:20px;">しばらくしてから再度アクセスするか、ブラウザのキャッシュをクリアしてお試しください。</p>
-    </div>
+<div class="container">
 
-    <div class="small">Maintenance or Access Restriction</div>
-    <p>©naninuneno create</p>
-  </div>
+<h1>ERROR</h1>
+<h2>アクセスできません</h2>
+
+<div class="message">
+<p>お探しのページは、以下の理由により表示できない可能性があります。</p>
+
+<div class="status-list">
+・現在システムメンテナンス中 (503)<br>
+・指定されたページが削除された (410 Gone)<br>
+・URLが間違っているか存在しない (404 Not Found)<br>
+・アクセス権限がない、または制限されている (403 Forbidden)<br>
+・サイトが閉鎖された
+</div>
+
+<p style="margin-top:20px;">
+しばらくしてから再度アクセスするか、ブラウザのキャッシュをクリアしてお試しください。
+</p>
+</div>
+
+<button onclick="history.back()" class="back-btn">← 前のページに戻る</button>
+
+<div class="small">Maintenance or Access Restriction</div>
+<p>©naninuneno create</p>
+
+</div>
 </body>
 </html>
